@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Software — Honocode</title>
+    <meta
+      name="description"
+      content="Open-source software and tools by Honocode."
+    />
+    <meta name="author" content="Honocode" />
+    <meta property="og:title" content="Open Source Software — Honocode" />
+    <meta
+      property="og:description"
+      content="Open-source software and tools by Honocode."
+    />
+    <meta
+      property="og:image"
+      content="https://baiwei0427.github.io/img/wei.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://baiwei0427.github.io/software.html"
+    />
+    <meta
+      name="theme-color"
+      content="#f7f5f0"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1a1814"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="canonical" href="https://baiwei0427.github.io/software.html" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="https://baiwei0427.github.io/sitemap.xml"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css" />
+    <script>
+      (function () {
+        if (localStorage.getItem("theme") === "dark")
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
+    <style>
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .intro {
+        font-size: 0.92rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+        max-width: 640px;
+      }
+      .software-item {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .software-item:last-child {
+        border-bottom: none;
+      }
+      .software-title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+      .software-desc {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+      .software-links {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .software-links a {
+        font-size: 0.82rem;
+        color: var(--accent);
+        text-decoration: none;
+        padding: 0.15rem 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+      }
+      .software-links a:hover {
+        background: var(--hover-bg);
+      }
+    </style>
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P0JPBRQV5V"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-P0JPBRQV5V");
+    </script>
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
+  </head>
+  <body>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="papers.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="software.html" class="active" aria-current="page">Software</a>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Switch to dark mode"
+      >
+        <svg
+          class="theme-icon-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+        ><svg
+          class="theme-icon-sun"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+    </nav>
+
+    <main>
+      <h1>Open Source Software</h1>
+      <p class="intro">
+        I believe releasing software is the most important responsibility for
+        every researcher. Below are prototypes and tools related to my papers.
+        Questions? Drop me an <a href="mailto:baiwei0427@gmail.com">email</a>.
+      </p>
+
+      <div class="software-item reveal">
+        <div class="software-title">
+          Lumina — Hardware Offloaded Network Stack Micro-Behavior Testing
+        </div>
+        <div class="software-desc">
+          Adopted by <strong>Microsoft</strong> and <strong>NVIDIA</strong> for
+          production RDMA NIC testing.
+        </div>
+        <div class="software-links">
+          <a href="https://github.com/lumina-test/lumina">Code</a>
+          <a href="https://lumina-test.github.io/">Project</a>
+        </div>
+      </div>
+
+      <div class="software-item reveal">
+        <div class="software-title">
+          PIAS — Information-Agnostic Flow Scheduling
+        </div>
+        <div class="software-links">
+          <a href="https://github.com/HKUST-SING/PIAS-Software">Code</a>
+        </div>
+      </div>
+
+      <div class="software-item reveal">
+        <div class="software-title">
+          MQ-ECN — ECN for Multi-Service Multi-Queue Data Centers
+        </div>
+        <div class="software-links">
+          <a href="https://github.com/HKUST-SING/MQ-ECN-Software">Code</a>
+        </div>
+      </div>
+
+      <div class="software-item reveal">
+        <div class="software-title">
+          Traffic Generator — Simple traffic generator for network experiments
+        </div>
+        <div class="software-links">
+          <a href="https://github.com/HKUST-SING/TrafficGenerator">Code</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        © 2015–
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Honocode · Assisted by
+        <a href="https://openclaw.ai" style="color: inherit">OpenClaw AI</a>
+        &amp;
+        <a href="https://github.com/features/copilot" style="color: inherit"
+          >GitHub Copilot</a
+        >
+      </p>
+      <p>Last updated: Jul 21, 2026 12:19 PDT</p>
+    </footer>
+
+    <script>
+      !(function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!els.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          els.forEach(function (el) {
+            el.classList.add("visible");
+          });
+          return;
+        }
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        els.forEach(function (el) {
+          obs.observe(el);
+        });
+      })();
+    </script>
+    <script>
+      !(function () {
+        var btn = document.getElementById("theme-toggle");
+        btn.addEventListener("click", function () {
+          var isDark =
+            document.documentElement.getAttribute("data-theme") === "dark";
+          if (isDark) {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.setItem("theme", "light");
+            btn.setAttribute("aria-label", "Switch to dark mode");
+          } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+            btn.setAttribute("aria-label", "Switch to light mode");
+          }
+        });
+        if (document.documentElement.getAttribute("data-theme") === "dark")
+          btn.setAttribute("aria-label", "Switch to light mode");
+      })();
+    </script>
+  </body>
+</html>

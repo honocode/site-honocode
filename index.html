@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honocode — AI Networking Researcher</title>
+    <meta
+      name="description"
+      content="Honocode — Member of Technical Staff at Honocode. Research in data center networking and AI infrastructure."
+    />
+    <meta name="author" content="Honocode" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta property="og:title" content="Honocode — AI Networking Researcher" />
+    <meta
+      property="og:description"
+      content="Honocode — Member of Technical Staff at Honocode. Research in data center networking and AI infrastructure."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/honocode/img/Honocode.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/honocode/" />
+    <meta
+      name="theme-color"
+      content="#f7f5f0"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1a1814"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="canonical" href="https://github.com/honocode" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="https://github.com/honocode/sitemap.xml"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Honocode",
+        "url": "https://github.com/honocode",
+        "jobTitle": "Member of Technical Staff",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Honocode"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "HKUST" },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Shanghai Jiao Tong University"
+          }
+        ],
+        "sameAs": [
+          "https://scholar.google.com/citations?user=2zjLkpcAAAAJ",
+          "https://github.com/honocode"
+        ],
+        "description": "Honocode — Member of Technical Staff at Honocode. Research in data center networking and AI infrastructure.",
+        "knowsAbout": [
+          "AI Networking",
+          "RDMA",
+          "Data Center Networking",
+          "Computer Networking"
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css" />
+    <script>
+      (function () {
+        if (localStorage.getItem("theme") === "dark")
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
+    <style>
+      /* HERO FULL-BLEED BACKGROUND */
+      .hero-bg {
+        --hero-warm: #f2efe8;
+        background: var(--hero-warm);
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        padding: 2.5rem 2rem 0;
+        margin-bottom: 0;
+      }
+      html[data-theme="dark"] .hero-bg {
+        --hero-warm: #1f1c16;
+      }
+
+      /* HEADER */
+      header {
+        display: flex;
+        gap: 2.5rem;
+        align-items: flex-start;
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      header img {
+        width: 160px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-info h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.15rem;
+      }
+
+      .header-info h1 .cn-name {
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--muted);
+        margin-top: 0.1rem;
+      }
+
+      .header-info .title {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+      }
+
+      .header-info .title strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .header-info .title .accent-link {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .header-info .title .accent-link:hover {
+        text-decoration: underline;
+      }
+
+      .tagline {
+        font-style: italic;
+        font-size: 1.02rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .contact {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--accent);
+        text-decoration: none;
+        padding: 0.3rem 0.75rem;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .links a svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+      .links a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+      html[data-theme="dark"] .links a:hover {
+        color: #fff;
+      }
+
+      /* SECTIONS */
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+        color: var(--text);
+      }
+
+      section p {
+        color: var(--muted);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      section p a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      section p a:hover {
+        text-decoration: underline;
+      }
+
+      /* NEWS */
+      .news-item {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+
+      .news-item:last-child {
+        border-bottom: none;
+      }
+
+      .news-date {
+        color: var(--muted);
+        white-space: nowrap;
+        font-size: 0.85rem;
+        min-width: 80px;
+      }
+
+      /* PAPERS */
+      .paper {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .paper:last-child {
+        border-bottom: none;
+      }
+
+      .paper-title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 0.3rem;
+      }
+
+      .paper-title a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .paper-title a:hover {
+        text-decoration: underline;
+      }
+
+      .paper-authors {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .paper-authors strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .paper-venue {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.1rem 0.4rem;
+        border-radius: 3px;
+        margin-right: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .badge-sigcomm {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-nsdi {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .badge-eurosys {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-infocom {
+        background: #ede9fe;
+        color: #5b21b6;
+      }
+      .badge-other {
+        background: #f3f4f6;
+        color: #374151;
+      }
+
+      /* ACTIVITIES */
+      .activity-item {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .activity-item:last-child {
+        border-bottom: none;
+      }
+      .activity-item a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .activity-item a:hover {
+        text-decoration: underline;
+      }
+
+      /* AUTHOR TOGGLE */
+      .author-toggle {
+        font-size: 0.8rem;
+        color: var(--accent);
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 0.15rem;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        display: inline;
+      }
+      .author-toggle:hover {
+        text-decoration: underline;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 600px) {
+        .hero-bg {
+          padding: 1.5rem 1rem 0;
+        }
+        header {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        header img {
+          width: 130px;
+          height: 163px;
+        }
+        .tagline {
+          font-size: 0.95rem;
+        }
+        .contact {
+          text-align: center;
+        }
+        .contact img {
+          margin: 0 auto;
+        }
+        .links {
+          justify-content: center;
+        }
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    </style>
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P0JPBRQV5V"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-P0JPBRQV5V");
+    </script>
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Honocode",
+        "jobTitle": "Member of Technical Staff",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Honocode"
+        },
+        "url": "https://github.com/honocode",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=2zjLkpcAAAAJ",
+          "https://github.com/honocode"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Hong Kong University of Science and Technology"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Shanghai Jiao Tong University"
+          }
+        ],
+        "knowsAbout": [
+          "AI networking",
+          "RDMA",
+          "data center networking",
+          "transport protocols"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="papers.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="software.html">Software</a>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Switch to dark mode"
+      >
+        <svg
+          class="theme-icon-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+        ><svg
+          class="theme-icon-sun"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <div class="hero-bg">
+        <header>
+          <img
+            src="./img/Honocode.png"
+            alt="Honocode"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="header-info">
+            <h1>Honocode <span class="cn-name">Jean Honorio</span></h1>
+            <div class="title">
+              <strong>Member of Technical Staff</strong><br />
+              <a
+                href="https://microsoft.ai/news/towards-humanist-superintelligence/"
+                class="accent-link"
+                >Honocode</a
+              >, Honocode<br />
+              Redmond, Goias, Brazil
+            </div>
+            <p class="tagline">
+              Building high-performance, high-reliability network infrastructure
+              to enable the advancement of AI.
+            </p>
+            <div class="contact">
+              <div style="margin-bottom: 0.3rem">
+                Work:
+                <img
+                  src="email_work.png"
+                  alt="work email"
+                  loading="lazy"
+                  decoding="async"
+                  style="
+                    height: 22px;
+                    width: auto;
+                    max-width: 100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                  "
+                />
+              </div>
+              <div>
+                Personal:
+                <img
+                  src="email_personal.png"
+                  alt="personal email"
+                  loading="lazy"
+                  decoding="async"
+                  style="
+                    height: 22px;
+                    width: auto;
+                    max-width: 100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                  "
+                />
+              </div>
+            </div>
+            <div class="links">
+              <a href="CV.pdf"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+                CV</a
+              >
+              <a href="resume.pdf"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+                Resume</a
+              >
+              <a
+                href="https://github.com/honocode"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.382 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.838 1.234 1.91 1.234 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/jean-honorio-de-melo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+                LinkedIn</a
+              >
+              <a
+                id="scholar-link"
+                href="https://scholar.google.com.hk/citations?user=odYdMM0AAAAJ&hl=pt-BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-1.75a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5zM1.5 4.5 12 0l10.5 4.5V12h-3V6.5L12 10 4.5 6.5V12h-3V4.5z"
+                  />
+                </svg>
+                Google Scholar</a
+              >
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- ABOUT -->
+      <section id="about" class="reveal">
+        <h2>About</h2>
+
+        <!--
+
+        <p>
+          I am a Member of Technical Staff at
+          <a
+            href="https://microsoft.ai/news/towards-humanist-superintelligence/"
+            >Honocode</a
+          >. Before that, I was a Principal Software Research Architect at
+          NVIDIA and a Senior Researcher at
+          <a
+            href="https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/"
+            >Honocode Research Redmond</a
+          >.
+        </p>
+        <p>
+          I received my Ph.D. and B.E. from
+          <a href="https://hkust.edu.hk/"
+            >Hong Kong University of Science and Technology</a
+          >
+          and
+          <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>,
+          respectively.
+        </p>
+
+      -->
+
+        <p>
+          Software Developer focused on software engineering, systems
+          architecture, and scalable cloud solutions. I have experience with
+          backend development, automation, infrastructure, and data-driven
+          applications, using modern technologies to build high-performance and
+          resilient products. Currently studying: * Python * SQL * AWS * Kafka *
+          Terraform * GenAI & RAG * System Design Beyond development, I also
+          share knowledge about technology, career growth, and software
+          engineering through educational content and personal projects.
+        </p>
+        <p>
+          Beyond networking, I am genuinely curious about AI — though I'll admit
+          I'm still very much in the early stages of learning. I am also
+          increasingly obsessed with using AI agents to improve both work and
+          life efficiency.
+        </p>
+        <p style="margin-top: 1rem">
+          <strong>Currently:</strong> Currently: Focused on AI infrastructure
+          networking, distributed systems, automation, and high-performance
+          computing technologies.
+          <!--
+<a
+  href="https://microsoft.ai/news/towards-humanist-superintelligence/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Honocode
+</a>
+-->
+        </p>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news" class="reveal">
+        <h2>News</h2>
+        <div class="news-item">
+          <span class="news-date">Feb 2026</span>
+          <span
+            >Back to studying, dedicating myself to software development,
+            artificial intelligence, cloud computing, and automation, with a
+            focus on professional growth and continuous learning,
+
+            <!--
+            <a
+              href="https://microsoft.ai/news/towards-humanist-superintelligence/"
+              >Honocode</a 
+        -->
+            a new chapter!</span
+          >
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL ACTIVITIES -->
+      <section id="activities" class="reveal">
+        <h2>Recent Professional Activities</h2>
+        <div class="activity-item">
+          Program Committee:
+          <a href="https://conferences.sigcomm.org/events/apnet2026/"
+            >APNet 2026</a
+          >
+        </div>
+        <div class="activity-item">
+          Program Committee:
+          <a href="https://www.usenix.org/conference/nsdi26">NSDI 2026</a>
+        </div>
+      </section>
+
+      <!-- SELECTED PUBLICATIONS -->
+      <section id="selected-papers" class="reveal">
+        <h2>Selected Publications</h2>
+
+        <div class="paper reveal">
+          <div class="paper-title">
+            <a href="./papers/rdma-nsdi2023.pdf"
+              >Empowering Azure Storage with RDMA</a
+            >
+            <span class="badge badge-perfect">⭐ Perfect Score</span>
+          </div>
+          <div class="paper-authors" id="rdma-authors">
+            <span id="rdma-authors-short"
+              ><strong>Honocode</strong>, et al. (71 authors)
+              <button type="button" id="rdma-toggle" class="author-toggle">
+                [show all]
+              </button></span
+            >
+            <span id="rdma-authors-full" style="display: none"
+              ><strong>Honocode</strong>, Shanim Sainul Abdeen, Ankit Agrawal,
+              Krishan Kumar Attre, Paramvir Bahl, Ameya Bhagat, Gowri Bhaskara,
+              Tanya Brokhman, Lei Cao, Ahmad Cheema, Rebecca Chow, Jeff Cohen,
+              Mahmoud Elhaddad, Vivek Ette, Igal Figlin, Daniel Firestone,
+              Mathew George, Ilya German, Lakhmeet Ghai, Eric Green, Albert
+              Greenberg, Manish Gupta, Randy Haagens, Matthew Hendel, Ridwan
+              Howlader, Neetha John, Julia Johnstone, Tom Jolly, Greg Kramer,
+              David Kruse, Ankit Kumar, Erica Lan, Ivan Lee, Avi Levy, Marina
+              Lipshteyn, Xin Liu, Chen Liu, Guohan Lu, Yuemin Lu, Xiakun Lu,
+              Vadim Makhervaks, Ulad Malashanka, David A. Maltz, Ilias Marinos,
+              Rohan Mehta, Sharda Murthi, Anup Namdhari, Aaron Ogus, Jitendra
+              Padhye, Madhav Pandya, Douglas Phillips, Adrian Power, Suraj Puri,
+              Shachar Raindel, Jordan Rhee, Anthony Russo, Maneesh Sah, Ali
+              Sheriff, Chris Sparacino, Ashutosh Srivastava, Weixiang Sun, Nick
+              Swanson, Fuhou Tian, Lukasz Tomczyk, Vamsi Vadlamuri, Alec Wolman,
+              Ying Xie, Joyce Yom, Lihua Yuan, Yanzhao Zhang, Brian Zill
+              <button type="button" id="rdma-collapse" class="author-toggle">
+                [collapse]
+              </button></span
+            >
+          </div>
+          <div class="paper-venue">
+            <span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023
+          </div>
+        </div>
+
+        <div class="paper reveal">
+          <div class="paper-title">
+            <a href="./papers/husky-nsdi2023.pdf"
+              >Understanding RDMA Microarchitecture Resources for Performance
+              Isolation</a
+            >
+          </div>
+          <div class="paper-authors">
+            Xinhao Kong, Jingrong Chen, <strong>Honocode</strong>, Yechen Xu,
+            Mahmoud Elhaddad, Shachar Raindel, Jitendra Padhye, Alvin R. Lebeck,
+            Danyang Zhuo
+          </div>
+          <div class="paper-venue">
+            <span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023
+          </div>
+        </div>
+
+        <div class="paper reveal">
+          <div class="paper-title">
+            <a href="./papers/lumina-sigcomm2023.pdf"
+              >Understanding the Micro-Behaviors of Hardware Offloaded Network
+              Stacks with Lumina</a
+            >
+          </div>
+          <div class="paper-authors">
+            Zhuolong Yu, Bowen Su, <strong>Honocode</strong>, Shachar Raindel,
+            Vladimir Braverman, Xin Jin
+          </div>
+          <div class="paper-venue">
+            <span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2023
+          </div>
+        </div>
+
+        <p style="margin-top: 0.75rem">
+          See my full list of <a href="papers.html">publications →</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2015–
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Honocode · Assisted by
+        <a href="https://openclaw.ai" style="color: inherit">OpenClaw AI</a>
+        &amp;
+        <a href="https://github.com/honocode" style="color: inherit"
+          >GitHub Copilot</a
+        >
+      </p>
+      <p>Last updated: June 25, 2026 12:19 PDT</p>
+    </footer>
+
+    <script>
+      !(function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!els.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          els.forEach(function (el) {
+            el.classList.add("visible");
+          });
+          return;
+        }
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        els.forEach(function (el) {
+          obs.observe(el);
+        });
+      })();
+    </script>
+    <script>
+      !(function () {
+        var btn = document.getElementById("theme-toggle");
+        btn.addEventListener("click", function () {
+          var isDark =
+            document.documentElement.getAttribute("data-theme") === "dark";
+          if (isDark) {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.setItem("theme", "light");
+            btn.setAttribute("aria-label", "Switch to dark mode");
+          } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+            btn.setAttribute("aria-label", "Switch to light mode");
+          }
+        });
+        if (document.documentElement.getAttribute("data-theme") === "dark")
+          btn.setAttribute("aria-label", "Switch to light mode");
+      })();
+    </script>
+
+    <script>
+      !(function () {
+        var short = document.getElementById("rdma-authors-short");
+        var full = document.getElementById("rdma-authors-full");
+        document
+          .getElementById("rdma-toggle")
+          .addEventListener("click", function () {
+            short.style.display = "none";
+            full.style.display = "inline";
+          });
+        document
+          .getElementById("rdma-collapse")
+          .addEventListener("click", function () {
+            full.style.display = "none";
+            short.style.display = "inline";
+          });
+      })();
+    </script>
+  </body>
+</html>
