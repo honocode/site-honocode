@@ -252,7 +252,8 @@
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="experience.html">Experience</a>
-      <a href="Diplomas.html" class="active" aria-current="page">Diplomas</a>
+      <!-- CORREÇÃO: alterado de "Diplomas.html" para "diplomas.html" em minúsculo -->
+      <a href="diplomas.html" class="active" aria-current="page">Diplomas</a>
       <a href="talks.html">Talks</a>
       <a href="software.html">Software</a>
       <button
@@ -326,62 +327,6 @@
 
       <div class="paper reveal" data-venue="nsdi"></div>
       <div class="paper-venue"></div>
-
-      <!-- 
-  Contêiner de publicação/projeto.
-  A classe "paper" define o estilo do elemento.
-  A classe "reveal" adiciona a animação de aparecimento.
-  O atributo data-venue="other" identifica a categoria como "outros".
-
-
-       <div class="paper reveal" data-venue="other"></div>
-       <div class="paper reveal" data-venue="sigcomm"></div>
-  
-         
-   
-
-        <div class="paper reveal" data-venue="nsdi">
-          <span
-          
-            style="
-              font-size: 0.78rem;
-              font-weight: 600;
-              color: var(--muted);
-              margin-right: 0.5rem;
-            "
-            >[C9]</span>
-          <div class="paper-title">
-            <a href="./papers/mqecn-nsdi2016.pdf"
-              >Enabling ECN in Multi-Service Multi-Queue Data Centers</a>
-          </div>
-        
-          <div class="paper-authors">
-            <strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian,
-            Wei Wang
-          </div>
-          <div class="paper-venue">
-            <span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2016
-          </div>
-        </div>
-      -->
-
-      <!-- end collapsed-papers -->
-      <!--
-      <h2>Workshop Papers</h2>
-
-      <div class="year-label">2026</div>
-      -->
-
-      <!-- end collapsed workshop papers -->
-
-      <!--- <h2>Journal Papers</h2>
-
-      <div class="year-label">2026</div>
-
-      <div class="paper reveal"></div>
-      -->
-
-      <!--end collapsed journal papers -->
     </main>
 
     <footer>
@@ -400,27 +345,6 @@
       <p>Last updated: Jul 24, 2026 17:19 PDT</p>
     </footer>
 
-    <script>
-      function toggleSection(btnId, sectionId, year) {
-        var btn = document.getElementById(btnId);
-        var section = document.getElementById(sectionId);
-        var expanded = section.classList.toggle("expanded");
-        btn.classList.toggle("expanded", expanded);
-        btn.setAttribute("aria-expanded", expanded);
-        btn.innerHTML = expanded
-          ? '<span class="arrow">&#9654;</span> Hide earlier papers (before ' +
-            year +
-            ")"
-          : '<span class="arrow">&#9654;</span> Show earlier papers (before ' +
-            year +
-            ")";
-        if (expanded) {
-          section.querySelectorAll(".reveal").forEach(function (el) {
-            el.classList.add("visible");
-          });
-        }
-      }
-    </script>
     <script>
       !(function () {
         var els = document.querySelectorAll(".reveal");
@@ -472,7 +396,6 @@
         var bar = document.querySelector(".filter-bar");
         if (!bar) return;
         var buttons = bar.querySelectorAll(".filter-btn");
-        // Collect all Conference Papers section elements (between Conference h2 and Workshop h2)
         var workshopH2 = null;
         var h2s = document.querySelectorAll("h2");
         for (var i = 0; i < h2s.length; i++) {
@@ -481,7 +404,6 @@
             break;
           }
         }
-        // Gather conference paper elements: year-labels, papers, toggle-btns, collapsed-papers
         var confPapers = [];
         var confYears = [];
         var confToggleBtns = [];
@@ -491,7 +413,6 @@
           if (el.classList.contains("year-label")) confYears.push(el);
           if (el.classList.contains("paper")) confPapers.push(el);
           if (el.classList.contains("collapsed-papers")) {
-            // also gather children
             var children = el.children;
             for (var j = 0; j < children.length; j++) {
               if (children[j].classList.contains("year-label"))
@@ -506,7 +427,6 @@
 
         function applyFilter(venue) {
           var isAll = venue === "all";
-          // Show/hide papers
           confPapers.forEach(function (p) {
             if (isAll || p.getAttribute("data-venue") === venue) {
               p.style.display = "";
@@ -515,7 +435,6 @@
               p.style.display = "none";
             }
           });
-          // When filtering, auto-expand collapsed section; when "All", restore
           if (collapsedSection) {
             var toggleBtn = document.getElementById("toggleEarlierConf");
             if (!isAll) {
@@ -532,7 +451,6 @@
               }
             }
           }
-          // Show/hide year labels whose papers are all hidden
           confYears.forEach(function (yl) {
             var next = yl.nextElementSibling;
             var hasVisible = false;
@@ -549,7 +467,6 @@
                 hasVisible = true;
                 break;
               }
-              // Check inside collapsed-papers
               if (next.classList.contains("collapsed-papers")) {
                 var kids = next.children;
                 for (var k = 0; k < kids.length; k++) {
@@ -567,7 +484,6 @@
             }
             yl.style.display = hasVisible ? "" : "none";
           });
-          // Update buttons
           buttons.forEach(function (b) {
             b.setAttribute(
               "aria-pressed",
